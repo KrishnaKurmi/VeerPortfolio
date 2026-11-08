@@ -1,10 +1,11 @@
 export const COLORS = {
-  foreground: "#0a0a0a",
-  background: "#ffffff",
-  accent: "#3b82f6",
-  secondary: "#6b7280",
-  tertiary: "#d1d5db",
-  success: "#10b981",
+  foreground: "#121212",
+  background: "#F9F9F6",
+  card: "#FFFFFF",
+  secondary: "#73766F",
+  border: "#E8E9E5",
+  accent: "#D7F36A",
+  darkOlive: "#3B4330",
 };
 
 export const BREAKPOINTS = {

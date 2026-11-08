@@ -13,28 +13,28 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-[var(--border-subtle)] bg-[var(--bg-card)] py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="w-full border-t border-[#E8E9E5] bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand */}
         <div className="flex items-center gap-3">
-          <div className="w-7 h-7 rounded-md bg-[#121212] dark:bg-white text-white dark:text-[#121212] flex items-center justify-center font-mono font-bold text-xs border border-[#D7F36A]/40">
+          <div className="w-7 h-7 rounded-md bg-[#D7F36A] text-[#121212] flex items-center justify-center font-mono font-bold text-xs border border-[#121212]/10 shadow-2xs">
             V
           </div>
           <div>
-            <div className="font-mono text-xs font-bold tracking-tight text-[var(--text-primary)]">
+            <div className="font-mono text-xs font-bold tracking-tight text-[#121212]">
               VEER SINGH LODHI
             </div>
-            <div className="text-[10px] font-mono text-[var(--text-muted)]">
+            <div className="text-[10px] font-mono text-[#73766F]">
               &copy; {currentYear} &middot; All systems operational.
             </div>
           </div>
         </div>
 
         {/* Tech Credits */}
-        <div className="text-center md:text-left text-xs font-mono text-[var(--text-muted)]">
-          Built with <span className="text-[var(--text-primary)] font-semibold">Next.js 16</span>,{" "}
-          <span className="text-[var(--text-primary)] font-semibold">Tailwind CSS</span>, &amp;{" "}
-          <span className="text-[var(--text-primary)] font-semibold">Lenis</span>.
+        <div className="text-center md:text-left text-xs font-mono text-[#73766F]">
+          Engineered with <span className="text-[#121212] font-semibold">Next.js</span>,{" "}
+          <span className="text-[#121212] font-semibold">Tailwind CSS</span>, &amp;{" "}
+          <span className="text-[#121212] font-semibold">Lenis</span>.
         </div>
 
         {/* Social Icons & Back to top */}
@@ -43,7 +43,7 @@ export default function Footer() {
             href={portfolio.personal.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+            className="text-[#73766F] hover:text-[#121212] transition-colors p-1"
             aria-label="GitHub"
           >
             <GithubIcon className="w-4 h-4" />
@@ -53,7 +53,7 @@ export default function Footer() {
             href={portfolio.personal.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+            className="text-[#73766F] hover:text-[#121212] transition-colors p-1"
             aria-label="LinkedIn"
           >
             <LinkedinIcon className="w-4 h-4" />
@@ -61,7 +61,7 @@ export default function Footer() {
 
           <a
             href={`mailto:${portfolio.personal.email}`}
-            className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+            className="text-[#73766F] hover:text-[#121212] transition-colors p-1"
             aria-label="Email"
           >
             <Mail className="w-4 h-4" />
@@ -69,7 +69,7 @@ export default function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-black dark:hover:border-white transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E8E9E5] bg-[#F9F9F6] text-xs font-mono text-[#121212] hover:border-[#121212] transition-colors cursor-pointer"
             aria-label="Back to top"
           >
             <span>Top</span>

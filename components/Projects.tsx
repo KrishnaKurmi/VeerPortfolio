@@ -22,20 +22,20 @@ export default function Projects() {
   return (
     <section
       id="work"
-      className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[var(--border-subtle)]"
+      className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[#E8E9E5]"
     >
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
         <div>
-          <div className="text-xs font-mono font-semibold text-[#D7F36A] dark:text-[#D7F36A] uppercase tracking-widest mb-2">
+          <div className="inline-block px-2.5 py-1 rounded bg-zinc-100 text-zinc-800 font-mono text-[11px] font-bold tracking-wider uppercase mb-3">
             04 // FEATURED ENGAGEMENTS
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-[var(--text-primary)] tracking-tight">
-            Selected Work &amp; Systems
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-zinc-950 tracking-tight">
+            Selected Work &amp; <span className="font-serif italic font-normal text-zinc-700">Systems</span>
           </h2>
         </div>
 
-        <p className="text-xs sm:text-sm font-mono text-[var(--text-muted)] max-w-xs sm:text-right">
+        <p className="text-xs sm:text-sm font-mono text-[#73766F] max-w-xs sm:text-right">
           ENTERPRISE BACKENDS &middot; PRODUCTION APPS
         </p>
       </div>
@@ -43,33 +43,30 @@ export default function Projects() {
       {/* Featured Projects Grid: 2x2 Clean Bento Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
         {portfolio.featured_projects.map((project: FeaturedProject, idx: number) => {
-          const isJaldi = project.id === "jaldi-store";
-          const isHealth = project.id === "health-saathi";
-          const isHon = project.id === "hotornot";
-          const isSamvaad = project.id === "samvaad";
-
           return (
             <div
               key={project.id}
-              className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] overflow-hidden hover:border-[#D7F36A] transition-all duration-300 flex flex-col justify-between group shadow-2xs hover:shadow-lg"
+              className="rounded-2xl border border-[#E8E9E5] bg-white overflow-hidden hover:border-[#121212] transition-all duration-300 flex flex-col justify-between group shadow-[0_4px_24px_rgba(29,37,18,0.03)] hover:shadow-[0_20px_50px_rgba(29,37,18,0.08)] hover:-translate-y-0.5"
             >
               {/* Window Header Chrome */}
-              <div className="px-5 py-3.5 border-b border-[var(--border-subtle)] bg-[var(--bg-primary)]/80 flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-400/80"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80"></div>
-                  <span className="ml-2 font-mono text-[11px] text-[var(--text-muted)] truncate max-w-[180px] sm:max-w-xs">
+              <div className="px-5 py-3.5 border-b border-[#E8E9E5] bg-[#F9F9F6] flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#121212]/20"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#121212]/20"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#121212]/20"></div>
+                  </div>
+                  <span className="ml-2 font-mono text-[11px] text-[#73766F] truncate max-w-[180px] sm:max-w-xs">
                     {project.liveLink || project.playStoreLink || `github.com/veer/${project.id}`}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-[11px] font-bold text-[var(--text-muted)]">
+                  <span className="font-mono text-[11px] font-bold text-[#73766F]">
                     [0{idx + 1}]
                   </span>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-[10px] font-semibold border border-emerald-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white text-[#121212] font-mono text-[10px] font-bold border border-[#E8E9E5]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D7F36A] border border-[#121212]/20"></span>
                     {project.liveLink ? "LIVE" : project.playStoreLink ? "PLAY STORE" : "DEPLOYED"}
                   </span>
                 </div>
@@ -79,38 +76,38 @@ export default function Projects() {
               <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
                 <div>
                   {/* Category Pill */}
-                  <div className="text-[11px] font-mono tracking-wider text-[#D7F36A] dark:text-[#D7F36A] uppercase font-bold mb-2">
+                  <div className="text-[11px] font-mono tracking-wider text-[#73766F] uppercase font-bold mb-2">
                     {project.category}
                   </div>
 
                   {/* Project Name */}
-                  <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-[var(--text-primary)] mb-3 group-hover:text-[#3b82f6] transition-colors">
+                  <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-[#121212] mb-3 group-hover:text-[#3B4330] transition-colors">
                     {project.name}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm sm:text-base text-[var(--text-muted)] leading-relaxed mb-6">
+                  <p className="text-sm sm:text-base text-[#42463F] leading-[1.8] mb-6">
                     {project.description}
                   </p>
 
                   {/* Metadata Chips: Period & Team */}
-                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[var(--text-muted)] mb-6 py-2 border-y border-[var(--border-subtle)]">
+                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#73766F] mb-6 py-2 border-y border-[#E8E9E5]">
                     <div className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>{project.period}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <Users className="w-3.5 h-3.5" />
-                      <span>Team of {project.team}</span>
+                      <span>Team: {project.team}</span>
                     </div>
                   </div>
 
-                  {/* Tech Stack Badges */}
+                  {/* Tech stack badges */}
                   <div className="flex flex-wrap gap-1.5 mb-8">
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-primary)] text-xs font-mono text-[var(--text-primary)]"
+                        className="px-2.5 py-1 rounded-md border border-[#E8E9E5] bg-[#F9F9F6] text-xs font-mono text-[#121212]"
                       >
                         {t}
                       </span>
@@ -119,13 +116,13 @@ export default function Projects() {
                 </div>
 
                 {/* CTAs */}
-                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[var(--border-subtle)]">
+                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#E8E9E5]">
                   {project.liveLink && (
                     <Link
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#121212] dark:bg-white text-white dark:text-[#121212] text-xs font-semibold hover:bg-[#3B4330] dark:hover:bg-[#E8E9E5] transition-colors shadow-2xs"
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#121212] text-white text-xs font-semibold hover:bg-[#3B4330] hover:-translate-y-0.5 transition-all shadow-xs"
                     >
                       <span>Visit Live Store</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -137,11 +134,11 @@ export default function Projects() {
                       href={project.playStoreLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold transition-colors shadow-2xs"
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#121212] text-white text-xs font-semibold hover:bg-[#3B4330] hover:-translate-y-0.5 transition-all shadow-xs"
                     >
-                      <Play className="w-3.5 h-3.5 fill-current" />
+                      <Play className="w-3.5 h-3.5 fill-[#D7F36A] text-[#D7F36A]" />
                       <span>Google Play Store</span>
-                      <ArrowUpRight className="w-3 h-3" />
+                      <ArrowUpRight className="w-3 h-3 text-[#E8E9E5]" />
                     </Link>
                   )}
 
@@ -150,7 +147,7 @@ export default function Projects() {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-card)] text-[var(--text-primary)] text-xs font-semibold hover:border-black dark:hover:border-white transition-colors"
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-[#E8E9E5] bg-white text-[#121212] text-xs font-semibold hover:border-[#121212] hover:bg-[#F9F9F6] hover:-translate-y-0.5 transition-all shadow-2xs"
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
                       <span>View Code</span>
@@ -163,18 +160,18 @@ export default function Projects() {
         })}
       </div>
 
-      {/* Secondary Projects / Archive Accordion Section */}
-      <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] p-6 sm:p-8">
+      {/* Secondary Projects Accordion Archive */}
+      <div className="rounded-2xl border border-[#E8E9E5] bg-white p-6 sm:p-8 shadow-[0_4px_24px_rgba(29,37,18,0.03)]">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-subtle)] text-[var(--text-primary)]">
-              <FolderGit2 className="w-5 h-5 text-[#D7F36A]" />
+            <div className="p-2.5 rounded-xl bg-[#F9F9F6] border border-[#E8E9E5] text-[#121212]">
+              <FolderGit2 className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-display font-bold text-lg sm:text-xl text-[var(--text-primary)]">
+              <h3 className="font-display font-bold text-lg sm:text-xl text-[#121212]">
                 Additional Projects &amp; Software Archive
               </h3>
-              <p className="text-xs text-[var(--text-muted)] font-mono">
+              <p className="text-xs text-[#73766F] font-mono">
                 {portfolio.secondary_projects.length} repository projects &middot; Java Swing, WebSockets, DB Systems
               </p>
             </div>
@@ -182,7 +179,7 @@ export default function Projects() {
 
           <button
             onClick={() => setShowSecondary(!showSecondary)}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-primary)] hover:border-[#D7F36A] text-xs font-mono font-semibold text-[var(--text-primary)] transition-colors self-start sm:self-auto cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[#E8E9E5] bg-[#F9F9F6] hover:bg-white hover:border-[#121212] text-xs font-mono font-semibold text-[#121212] transition-all self-start sm:self-auto cursor-pointer"
           >
             <span>{showSecondary ? "Hide Archive" : "Expand Archive"}</span>
             {showSecondary ? (
@@ -194,27 +191,27 @@ export default function Projects() {
         </div>
 
         {showSecondary && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[var(--border-subtle)] animate-in fade-in duration-300">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#E8E9E5] animate-in fade-in duration-300">
             {portfolio.secondary_projects.map((proj: SecondaryProject) => (
               <div
                 key={proj.id}
-                className="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-primary)] flex flex-col justify-between hover:border-[#D7F36A] transition-colors"
+                className="p-5 rounded-xl border border-[#E8E9E5] bg-[#F9F9F6]/60 flex flex-col justify-between hover:border-[#121212] hover:bg-white transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono text-[#D7F36A] uppercase font-bold tracking-wider">
+                    <span className="text-[11px] font-mono text-[#73766F] uppercase font-bold tracking-wider">
                       {proj.category}
                     </span>
-                    <span className="text-[11px] font-mono text-[var(--text-muted)]">
+                    <span className="text-[11px] font-mono text-[#73766F]">
                       {proj.period}
                     </span>
                   </div>
 
-                  <h4 className="font-display font-bold text-base text-[var(--text-primary)] mb-2">
+                  <h4 className="font-display font-bold text-base text-[#121212] mb-2">
                     {proj.name}
                   </h4>
 
-                  <p className="text-xs text-[var(--text-muted)] mb-4 leading-relaxed">
+                  <p className="text-xs text-[#42463F] mb-4 leading-relaxed">
                     {proj.description}
                   </p>
 
@@ -222,7 +219,7 @@ export default function Projects() {
                     {proj.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-2 py-0.5 rounded-sm border border-[var(--border-subtle)] bg-[var(--bg-card)] text-[10px] font-mono text-[var(--text-primary)]"
+                        className="px-2 py-0.5 rounded-md border border-[#E8E9E5] bg-white text-[11px] font-mono text-[#121212]"
                       >
                         {t}
                       </span>
@@ -234,11 +231,11 @@ export default function Projects() {
                   href={proj.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-600 dark:text-blue-400 hover:underline pt-2 border-t border-[var(--border-subtle)]"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#121212] hover:text-[#3B4330] pt-3 border-t border-[#E8E9E5]"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>GitHub Repository</span>
-                  <ArrowUpRight className="w-3 h-3" />
+                  <ArrowUpRight className="w-3 h-3 text-[#73766F]" />
                 </Link>
               </div>
             ))}

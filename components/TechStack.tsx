@@ -14,7 +14,6 @@ import {
 interface CategoryMeta {
   key: keyof typeof portfolio.skills;
   label: string;
-  index: string;
   icon: typeof Code2;
   description: string;
 }
@@ -23,44 +22,38 @@ const categories: CategoryMeta[] = [
   {
     key: "languages",
     label: "Languages & Core",
-    index: "01",
     icon: Code2,
-    description: "Core algorithmic foundations and multi-paradigm programming.",
+    description: "Core algorithms, data structures, and typed programming languages.",
   },
   {
     key: "backend",
-    label: "Backend & Systems",
-    index: "02",
+    label: "Backend & Distributed Systems",
     icon: Server,
     description: "Enterprise Java, Spring ecosystem, microservices, and secure APIs.",
   },
   {
     key: "frontend",
-    label: "Frontend & UI",
-    index: "03",
+    label: "Frontend & User Interfaces",
     icon: Layout,
-    description: "Modern component-driven web interfaces, SPAs, and design systems.",
+    description: "Component architecture, reactive state, and modern CSS frameworks.",
   },
   {
     key: "databases",
-    label: "Databases & Storage",
-    index: "04",
+    label: "Databases & Data Storage",
     icon: Database,
-    description: "Relational modeling, document stores, indexing, and transactional integrity.",
+    description: "Relational schemas, ACID transactions, and document stores.",
   },
   {
     key: "ai_ml",
     label: "AI & Generative Systems",
-    index: "05",
     icon: BrainCircuit,
-    description: "Retrieval-Augmented Generation, vector embeddings, and autonomous agent loops.",
+    description: "RAG pipelines, vector search, embeddings, and autonomous agent loops.",
   },
   {
     key: "tools",
-    label: "Tools & Protocols",
-    index: "06",
+    label: "Tools, Security & Protocols",
     icon: Wrench,
-    description: "Version control, API testing, real-time protocols, and authentication.",
+    description: "Version control, API testing, WebSockets, OAuth2, and JWT tokens.",
   },
 ];
 
@@ -70,61 +63,59 @@ export default function TechStack() {
   return (
     <section
       id="stack"
-      className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[var(--border-subtle)]"
+      className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[#E8E9E5]"
     >
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
         <div>
-          <div className="text-xs font-mono font-semibold text-[#D7F36A] dark:text-[#D7F36A] uppercase tracking-widest mb-2">
+          <div className="inline-block px-2.5 py-1 rounded bg-[#D7F36A] text-[#121212] font-mono text-[11px] font-bold tracking-wider uppercase mb-3">
             03 // TECHNICAL PROFICIENCY
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-[var(--text-primary)] tracking-tight">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-[#121212] tracking-hero">
             Capabilities &amp; Tech Stack
           </h2>
         </div>
 
-        <p className="text-xs sm:text-sm font-mono text-[var(--text-muted)] max-w-xs sm:text-right">
-          ENTERPRISE ARCHITECTURE + GENERATIVE AI
+        <p className="text-xs sm:text-sm font-mono text-[#73766F] max-w-xs sm:text-right">
+          ENTERPRISE BACKEND + MODERN WEB + AI
         </p>
       </div>
 
-      {/* Bento Grid: 6 Categorized Stack Cards */}
+      {/* Grid: 6 Categorized Stack Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        {categories.map((cat) => {
+        {categories.map((cat, idx) => {
           const items = portfolio.skills[cat.key];
           const Icon = cat.icon;
 
           return (
             <div
               key={cat.key}
-              className="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] hover:border-[#D7F36A] transition-all duration-300 flex flex-col justify-between group shadow-2xs hover:shadow-md"
+              className="p-6 sm:p-7 rounded-2xl border border-[#E8E9E5] bg-white hover:border-[#121212] hover:shadow-[0_16px_36px_rgba(29,37,18,0.06)] hover:-translate-y-0.5 transition-all flex flex-col justify-between group shadow-[0_4px_20px_rgba(29,37,18,0.03)]"
             >
               <div>
-                {/* Header within card */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2.5">
-                    <div className="p-2 rounded-lg bg-[var(--bg-primary)] border border-[var(--border-subtle)] text-[var(--text-primary)] group-hover:bg-[#D7F36A] group-hover:text-[#121212] transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 rounded-xl bg-[#F9F9F6] border border-[#E8E9E5] text-[#121212] group-hover:bg-[#121212] group-hover:text-white group-hover:border-[#121212] transition-colors">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--text-primary)]">
+                    <h3 className="font-display font-bold text-sm text-[#121212]">
                       {cat.label}
-                    </span>
+                    </h3>
                   </div>
-                  <span className="font-mono text-[11px] text-[var(--text-muted)]">
-                    {cat.index}
+                  <span className="font-mono text-[10px] text-[#73766F] px-2 py-0.5 rounded bg-[#F9F9F6] border border-[#E8E9E5]">
+                    0{idx + 1}
                   </span>
                 </div>
 
-                <p className="text-xs text-[var(--text-muted)] mb-5">
+                <p className="text-xs text-[#73766F] mb-5 leading-relaxed">
                   {cat.description}
                 </p>
 
-                {/* Pill Badges */}
                 <div className="flex flex-wrap gap-1.5">
                   {items.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-primary)] text-xs font-mono text-[var(--text-primary)] hover:border-[#D7F36A] hover:bg-[#D7F36A]/10 transition-colors"
+                      className="px-2.5 py-1 rounded-md border border-[#E8E9E5] bg-[#F9F9F6] text-xs font-mono text-[#121212] hover:border-[#121212] transition-colors"
                     >
                       {skill}
                     </span>
@@ -132,10 +123,9 @@ export default function TechStack() {
                 </div>
               </div>
 
-              {/* Card Footer Counter */}
-              <div className="pt-4 mt-6 border-t border-[var(--border-subtle)] flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)]">
-                <span>Verified skills</span>
-                <span className="font-semibold text-[var(--text-primary)]">
+              <div className="pt-4 mt-6 border-t border-[#E8E9E5] flex items-center justify-between text-[11px] font-mono text-[#73766F]">
+                <span>Verified modules</span>
+                <span className="font-semibold text-[#121212]">
                   {items.length} technologies
                 </span>
               </div>
@@ -144,23 +134,23 @@ export default function TechStack() {
         })}
       </div>
 
-      {/* Infinite Ticker Bar across the bottom */}
-      <div className="p-4 sm:p-5 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] overflow-hidden">
+      {/* Smooth Marquee Bar */}
+      <div className="p-4 sm:p-5 rounded-2xl border border-[#E8E9E5] bg-white shadow-[0_4px_20px_rgba(29,37,18,0.03)] overflow-hidden">
         <div className="flex items-center gap-2 mb-3 px-2">
-          <Check className="w-3.5 h-3.5 text-[#D7F36A]" />
-          <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--text-muted)]">
-            Continuous Ingestion &middot; Skills Stream
+          <Check className="w-3.5 h-3.5 text-[#121212]" />
+          <span className="text-[11px] font-mono uppercase tracking-wider text-[#73766F]">
+            Skills Overview &middot; Active Ecosystem
           </span>
         </div>
 
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
-          <div className="flex gap-3 py-1 animate-marquee whitespace-nowrap">
+          <div className="flex gap-2.5 py-1 animate-marquee whitespace-nowrap">
             {allSkills.concat(allSkills).map((item, idx) => (
               <span
                 key={`${item}-${idx}`}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-primary)] text-xs font-mono text-[var(--text-primary)] font-medium"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E8E9E5] bg-[#F9F9F6] text-xs font-mono text-[#121212] font-medium"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D7F36A]"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D7F36A] border border-[#121212]/30"></span>
                 {item}
               </span>
             ))}
