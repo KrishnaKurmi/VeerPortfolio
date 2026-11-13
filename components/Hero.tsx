@@ -5,57 +5,11 @@ import { portfolio } from "@/data/portfolio";
 import { ArrowDown, ArrowUpRight, Award, MapPin, Sparkles, Terminal } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { motion } from "framer-motion";
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from "react";
+import { scrollToTarget } from "@/lib/gsap-setup";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    // Reduced motion check
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) return;
-
-    if (!heroRef.current) return;
-
-    const ctx = gsap.context(() => {
-      // Hero scale & opacity on scroll
-      gsap.to(heroRef.current, {
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom center",
-          scrub: 1,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            const scale = Math.max(0.8, 1 - progress * 0.2);
-            const opacity = Math.max(0.3, 1 - progress * 0.7);
-            gsap.set(heroRef.current, { scale, opacity });
-          },
-        },
-      });
-
-      // Stagger card animations
-      gsap.utils.toArray(".hero-card").forEach((card: any) => {
-        gsap.from(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: "top 80%",
-            end: "top 20%",
-            scrub: 0.5,
-          },
-          opacity: 0,
-          y: 40,
-          duration: 0.8,
-        });
-      });
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -173,6 +127,10 @@ export default function Hero() {
         >
           <motion.a
             href="#work"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToTarget("#work");
+            }}
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-zinc-950 dark:bg-zinc-100 text-white dark:text-zinc-950 font-semibold text-sm hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all shadow-sm active:scale-98 group cursor-pointer"
             variants={itemVariants}
             whileHover={{ y: -2, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.15)" }}
@@ -240,8 +198,7 @@ export default function Hero() {
         className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-zinc-200/80 dark:border-zinc-800"
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        animate="visible"
       >
         {[
           {

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { portfolio } from "@/data/portfolio";
 import { ArrowUpRight, Menu, X, FileText } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import { scrollToTarget } from "@/lib/gsap-setup";
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,6 +18,14 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      scrollToTarget(href, -70);
+      setMenuOpen(false);
+    }
+  };
 
   const navLinks = [
     { name: "Work", href: "#work" },
@@ -60,7 +69,8 @@ export default function Navigation() {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3.5 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/80"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="px-3.5 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors rounded-lg hover:bg-zinc-100/60 dark:hover:bg-white/10 cursor-pointer"
               >
                 {link.name}
               </a>
@@ -123,8 +133,8 @@ export default function Navigation() {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100/60 dark:hover:bg-white/10 transition-colors cursor-pointer"
               >
                 <span>{link.name}</span>
                 <span className="text-xs text-zinc-400 dark:text-zinc-500">&rarr;</span>

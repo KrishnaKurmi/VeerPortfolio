@@ -37,11 +37,11 @@ html.dark {
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
   font-size: 16px;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -52,20 +52,38 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Universal smooth color & background transitions during theme switching */
+header,
+nav,
+footer,
+section,
+button,
+a,
+input,
+svg,
+div:where([class*="bg-"], [class*="border-"], [class*="text-"], .hero-card) {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Subtle, luxury scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--border-strong);
   border-radius: 9999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
@@ -117,7 +135,7 @@ html[data-theme="dark"] ::selection {
   left: 50%;
   top: 50%;
   transform: translateY(-50%) translateX(-2%);
-  background: url('/ink.png') no-repeat 0 0;
+  background: url('https://res.cloudinary.com/c7pi83bj/image/upload/q_auto,f_auto/ink.png') no-repeat 0 0;
   background-size: 100% 100%;
   backface-visibility: hidden;
   will-change: transform;
@@ -143,6 +161,7 @@ html[data-theme="dark"] ::selection {
   0% {
     transform: translateY(-50%) translateX(-2%);
   }
+
   100% {
     transform: translateY(-50%) translateX(-98%);
   }
@@ -152,6 +171,7 @@ html[data-theme="dark"] ::selection {
   0% {
     transform: translateY(-50%) translateX(-98%);
   }
+
   100% {
     transform: translateY(-50%) translateX(-2%);
   }
@@ -162,6 +182,7 @@ html[data-theme="dark"] ::selection {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -184,9 +205,11 @@ html[data-theme="dark"] ::selection {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
   .animate-marquee {
     animation: none;
   }
+
   .cd-bg-transition-layer,
   .cd-transition-layer {
     display: none !important;

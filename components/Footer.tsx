@@ -4,12 +4,13 @@ import Link from "next/link";
 import { ArrowUp, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { portfolio } from "@/data/portfolio";
+import { scrollToTarget } from "@/lib/gsap-setup";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollToTarget(0, 0);
   };
 
   return (
