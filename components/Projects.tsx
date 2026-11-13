@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { portfolio, FeaturedProject, SecondaryProject } from "@/data/portfolio";
 import {
   ArrowUpRight,
@@ -41,12 +42,35 @@ export default function Projects() {
       </div>
 
       {/* Featured Projects Grid: 2x2 Clean Bento Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+      <motion.div
+        className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.15,
+            },
+          },
+        }}
+      >
         {portfolio.featured_projects.map((project: FeaturedProject, idx: number) => {
           return (
-            <div
+            <motion.div
               key={project.id}
               className="rounded-2xl border border-[#E8E9E5] bg-white overflow-hidden hover:border-[#121212] transition-all duration-300 flex flex-col justify-between group shadow-[0_4px_24px_rgba(29,37,18,0.03)] hover:shadow-[0_20px_50px_rgba(29,37,18,0.08)] hover:-translate-y-0.5"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{
+                y: -8,
+                boxShadow: "0 20px 50px rgba(29, 37, 18, 0.08)",
+              }}
+              transition={{
+                duration: 0.6,
+                delay: idx * 0.15,
+              }}
+              viewport={{ once: true }}
             >
               {/* Window Header Chrome */}
               <div className="px-5 py-3.5 border-b border-[#E8E9E5] bg-[#F9F9F6] flex items-center justify-between">
@@ -155,13 +179,20 @@ export default function Projects() {
                   )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* Secondary Projects Accordion Archive */}
-      <div className="rounded-2xl border border-[#E8E9E5] bg-white p-6 sm:p-8 shadow-[0_4px_24px_rgba(29,37,18,0.03)]">
+      <motion.div
+        className="rounded-2xl border border-[#E8E9E5] bg-white p-6 sm:p-8 shadow-[0_4px_24px_rgba(29,37,18,0.03)]"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ boxShadow: "0 12px 24px rgba(29, 37, 18, 0.06)" }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true }}
+      >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-[#F9F9F6] border border-[#E8E9E5] text-[#121212]">
@@ -191,11 +222,26 @@ export default function Projects() {
         </div>
 
         {showSecondary && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#E8E9E5] animate-in fade-in duration-300">
-            {portfolio.secondary_projects.map((proj: SecondaryProject) => (
-              <div
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#E8E9E5]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            {portfolio.secondary_projects.map((proj: SecondaryProject, idx: number) => (
+              <motion.div
                 key={proj.id}
                 className="p-5 rounded-xl border border-[#E8E9E5] bg-[#F9F9F6]/60 flex flex-col justify-between hover:border-[#121212] hover:bg-white transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                animate={showSecondary ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                whileHover={{
+                  y: -3,
+                  boxShadow: "0 8px 16px rgba(0, 0, 0, 0.05)",
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: idx * 0.08,
+                }}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
@@ -237,11 +283,11 @@ export default function Projects() {
                   <span>GitHub Repository</span>
                   <ArrowUpRight className="w-3 h-3 text-[#73766F]" />
                 </Link>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
-      </div>
+      </motion.div>
     </section>
   );
 }

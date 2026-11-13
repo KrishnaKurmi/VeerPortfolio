@@ -2,6 +2,7 @@
 
 import { portfolio, ExperienceEntry } from "@/data/portfolio";
 import { Briefcase, Building2, Calendar, CheckCircle, Code } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Experience() {
   return (
@@ -26,11 +27,34 @@ export default function Experience() {
       </div>
 
       {/* Experience Timeline */}
-      <div className="space-y-8">
+      <motion.div
+        className="space-y-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+      >
         {portfolio.experience.map((exp: ExperienceEntry, idx: number) => (
-          <div
+          <motion.div
             key={idx}
             className="p-6 sm:p-10 rounded-2xl border border-[#E8E9E5] bg-white shadow-[0_4px_24px_rgba(29,37,18,0.03)] relative overflow-hidden"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{
+              y: -4,
+              boxShadow: "0 16px 36px rgba(29, 37, 18, 0.08)",
+            }}
+            transition={{
+              duration: 0.6,
+              delay: idx * 0.2,
+            }}
+            viewport={{ once: true }}
           >
             {/* Top row */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-[#E8E9E5]">
@@ -121,9 +145,9 @@ export default function Experience() {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

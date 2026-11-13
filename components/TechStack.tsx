@@ -1,6 +1,7 @@
 "use client";
 
 import { portfolio } from "@/data/portfolio";
+import { motion } from "framer-motion";
 import {
   Code2,
   Server,
@@ -82,15 +83,38 @@ export default function TechStack() {
       </div>
 
       {/* Grid: 6 Categorized Stack Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.12,
+            },
+          },
+        }}
+      >
         {categories.map((cat, idx) => {
           const items = portfolio.skills[cat.key];
           const Icon = cat.icon;
 
           return (
-            <div
+            <motion.div
               key={cat.key}
               className="p-6 sm:p-7 rounded-2xl border border-[#E8E9E5] bg-white hover:border-[#121212] hover:shadow-[0_16px_36px_rgba(29,37,18,0.06)] hover:-translate-y-0.5 transition-all flex flex-col justify-between group shadow-[0_4px_20px_rgba(29,37,18,0.03)]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{
+                y: -8,
+                boxShadow: "0 16px 36px rgba(29, 37, 18, 0.06)",
+              }}
+              transition={{
+                duration: 0.6,
+                delay: idx * 0.12,
+              }}
+              viewport={{ once: true }}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -129,13 +153,19 @@ export default function TechStack() {
                   {items.length} technologies
                 </span>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* Smooth Marquee Bar */}
-      <div className="p-4 sm:p-5 rounded-2xl border border-[#E8E9E5] bg-white shadow-[0_4px_20px_rgba(29,37,18,0.03)] overflow-hidden">
+      <motion.div
+        className="p-4 sm:p-5 rounded-2xl border border-[#E8E9E5] bg-white shadow-[0_4px_20px_rgba(29,37,18,0.03)] overflow-hidden"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        viewport={{ once: true }}
+      >
         <div className="flex items-center gap-2 mb-3 px-2">
           <Check className="w-3.5 h-3.5 text-[#121212]" />
           <span className="text-[11px] font-mono uppercase tracking-wider text-[#73766F]">
@@ -156,7 +186,7 @@ export default function TechStack() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
