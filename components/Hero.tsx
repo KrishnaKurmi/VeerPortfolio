@@ -127,7 +127,7 @@ export default function Hero() {
       >
         {/* Role Kicker */}
         <motion.div
-          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs font-mono font-medium w-fit mb-6 shadow-2xs"
+          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md text-zinc-700 dark:text-zinc-300 text-xs font-mono font-medium w-fit mb-6 shadow-2xs"
           variants={itemVariants}
         >
           <Terminal className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
@@ -266,7 +266,7 @@ export default function Hero() {
         ].map((card, idx) => (
           <motion.div
             key={idx}
-            className="hero-card p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-[0_1px_3px_0_rgba(0,0,0,0.02)] dark:shadow-[0_1px_3px_0_rgba(0,0,0,0.4)] hover:border-zinc-400 dark:hover:border-zinc-700 transition-all"
+            className="hero-card p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md shadow-[0_1px_3px_0_rgba(0,0,0,0.02)] dark:shadow-[0_1px_3px_0_rgba(0,0,0,0.4)] hover:border-zinc-400 dark:hover:border-zinc-700 transition-all"
             variants={itemVariants}
             whileHover={{
               y: -4,

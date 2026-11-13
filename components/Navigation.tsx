@@ -30,7 +30,7 @@ export default function Navigation() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[#fbfbfa]/90 dark:bg-[#0f0f0f]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800 py-3.5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+          ? "bg-[#c0d0bb]/90 dark:bg-[#3f2f44]/90 backdrop-blur-md border-b border-black/10 dark:border-white/10 py-3.5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
           : "bg-transparent border-b border-transparent py-5"
       }`}
     >
@@ -118,7 +118,7 @@ export default function Navigation() {
 
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
-          <div className="md:hidden mt-3 pt-3 pb-4 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 rounded-2xl p-4 shadow-xl space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden mt-3 pt-3 pb-4 border border-black/10 dark:border-white/10 bg-[#c0d0bb]/95 dark:bg-[#3f2f44]/95 backdrop-blur-md rounded-2xl p-4 shadow-xl space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
             {navLinks.map((link) => (
               <a
                 key={link.name}

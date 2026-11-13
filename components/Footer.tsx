@@ -13,7 +13,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0f0f0f] py-12 px-4 sm:px-6 lg:px-8 transition-colors">
+    <footer className="w-full border-t border-black/10 dark:border-white/10 bg-[#c0d0bb]/80 dark:bg-[#3f2f44]/80 backdrop-blur-md py-12 px-4 sm:px-6 lg:px-8 transition-colors">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand */}
         <div className="flex items-center gap-3">

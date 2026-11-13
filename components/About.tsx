@@ -86,7 +86,7 @@ export default function About() {
           variants={leftColVariants}
         >
           <motion.div
-            className="p-8 sm:p-10 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
+            className="p-8 sm:p-10 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
             variants={cardVariants}
             whileHover={{
               boxShadow: "0 12px 24px rgba(0, 0, 0, 0.08)",
@@ -105,7 +105,7 @@ export default function About() {
 
           {/* Achievement Spotlight Card */}
           <motion.div
-            className="p-7 sm:p-8 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-[#F9F9F6] dark:bg-zinc-900/90 text-zinc-950 dark:text-zinc-100 shadow-2xs"
+            className="p-7 sm:p-8 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-[#F9F9F6]/90 dark:bg-zinc-900/90 backdrop-blur-md text-zinc-950 dark:text-zinc-100 shadow-2xs"
             variants={cardVariants}
             whileHover={{
               y: -4,
@@ -132,7 +132,7 @@ export default function About() {
 
           {/* Education Card */}
           <motion.div
-            className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex items-start gap-4 shadow-2xs"
+            className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md flex items-start gap-4 shadow-2xs"
             variants={cardVariants}
             whileHover={{
               y: -4,
@@ -163,7 +163,7 @@ export default function About() {
         >
           {/* Active Exploration Card */}
           <motion.div
-            className="p-7 sm:p-8 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
+            className="p-7 sm:p-8 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
             variants={cardVariants}
             whileHover={{
               y: -4,
@@ -196,7 +196,7 @@ export default function About() {
 
           {/* Engineering Tenets Card */}
           <motion.div
-            className="p-7 sm:p-8 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
+            className="p-7 sm:p-8 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
             variants={cardVariants}
             whileHover={{
               y: -4,

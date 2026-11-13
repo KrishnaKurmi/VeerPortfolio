@@ -46,7 +46,7 @@ export default function Contact() {
       </div>
 
       {/* Main Email Hero Card */}
-      <div className="p-8 sm:p-12 md:p-16 rounded-3xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 mb-10 shadow-[0_20px_70px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_70px_rgba(0,0,0,0.4)] relative overflow-hidden group">
+      <div className="p-8 sm:p-12 md:p-16 rounded-3xl border border-zinc-200/80 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md mb-10 shadow-[0_20px_70px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_70px_rgba(0,0,0,0.4)] relative overflow-hidden group">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200/80 dark:border-zinc-700 bg-[#F9F9F6] dark:bg-zinc-800 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-6">
             <span className="w-2 h-2 rounded-full bg-[#D7F36A] border border-[#121212]/30 dark:border-zinc-950/40 animate-pulse"></span>
@@ -110,7 +110,7 @@ export default function Contact() {
 
       {/* 3 Info Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <div className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
           <div className="flex items-center gap-2 mb-4 text-zinc-950 dark:text-zinc-100">
             <Phone className="w-4 h-4 text-zinc-900 dark:text-zinc-200" />
             <span className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-950 dark:text-zinc-100">
@@ -139,7 +139,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <div className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
           <div className="flex items-center gap-2 mb-4 text-zinc-950 dark:text-zinc-100">
             <Sparkles className="w-4 h-4 text-zinc-900 dark:text-amber-400" />
             <span className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-950 dark:text-zinc-100">
@@ -176,7 +176,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
+        <div className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
           <div className="flex items-center gap-2 mb-4 text-zinc-950 dark:text-zinc-100">
             <Check className="w-4 h-4 text-zinc-900 dark:text-emerald-400" />
             <span className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-950 dark:text-zinc-100">

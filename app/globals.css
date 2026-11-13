@@ -10,28 +10,28 @@
 }
 
 :root {
-  --bg-primary: #fbfbfa;
-  --bg-card: #ffffff;
-  --bg-muted: #f4f4f2;
+  --bg-primary: #c0d0bb;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --bg-muted: #b4c6ae;
   --text-primary: #18181b;
-  --text-secondary: #3f3f46;
-  --text-muted: #71717a;
-  --border-subtle: #e4e4e7;
-  --border-strong: #d4d4d8;
+  --text-secondary: #2f3a2d;
+  --text-muted: #4f5d4d;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
   --accent-blue: #2563eb;
   --accent-emerald: #059669;
 }
 
 html[data-theme="dark"],
 html.dark {
-  --bg-primary: #0f0f0f;
-  --bg-card: #18181b;
-  --bg-muted: #242427;
+  --bg-primary: #3f2f44;
+  --bg-card: rgba(49, 36, 54, 0.75);
+  --bg-muted: #2f2234;
   --text-primary: #f4f4f5;
   --text-secondary: #d4d4d8;
   --text-muted: #a1a1aa;
-  --border-subtle: #27272a;
-  --border-strong: #3f3f46;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
   --accent-blue: #3b82f6;
   --accent-emerald: #10b981;
 }
@@ -41,7 +41,7 @@ html {
   font-size: 16px;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 body {
@@ -52,7 +52,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Subtle, luxury scrollbar */
@@ -89,28 +89,29 @@ html[data-theme="dark"] ::selection {
 }
 
 /* ========================================================
-   CodyHouse Ink Transition Effect
+   CodyHouse Background Ink Transition Layer
    ======================================================== */
+.cd-bg-transition-layer,
 .cd-transition-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99999;
-  height: 100vh;
-  width: 100vw;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   overflow: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 10;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 
+.cd-bg-transition-layer.visible,
 .cd-transition-layer.visible {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
 }
 
+.cd-bg-transition-layer .bg-layer,
 .cd-transition-layer .bg-layer {
   position: absolute;
   left: 50%;
@@ -122,15 +123,18 @@ html[data-theme="dark"] ::selection {
   will-change: transform;
 }
 
-/* Invert ink sprite to light off-white when transitioning to light mode */
+/* Invert ink sprite to light off-white wash when transitioning to light mode */
+.cd-bg-transition-layer.to-light .bg-layer,
 .cd-transition-layer.to-light .bg-layer {
   filter: invert(1);
 }
 
+.cd-bg-transition-layer.opening .bg-layer,
 .cd-transition-layer.opening .bg-layer {
   animation: cd-sequence 0.75s steps(24) forwards;
 }
 
+.cd-bg-transition-layer.closing .bg-layer,
 .cd-transition-layer.closing .bg-layer {
   animation: cd-sequence-reverse 0.75s steps(24) forwards;
 }
@@ -183,6 +187,7 @@ html[data-theme="dark"] ::selection {
   .animate-marquee {
     animation: none;
   }
+  .cd-bg-transition-layer,
   .cd-transition-layer {
     display: none !important;
   }
