@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { portfolio } from "@/data/portfolio";
 import { ArrowUpRight, Menu, X, FileText } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +30,7 @@ export default function Navigation() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[#F9F9F6]/90 backdrop-blur-md border-b border-[#E8E9E5] py-3.5 shadow-[0_4px_20px_rgba(29,37,18,0.03)]"
+          ? "bg-[#fbfbfa]/90 dark:bg-[#0f0f0f]/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800 py-3.5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
           : "bg-transparent border-b border-transparent py-5"
       }`}
     >
@@ -44,10 +45,10 @@ export default function Navigation() {
               V
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-sm font-bold tracking-tight text-[#121212] group-hover:text-[#3B4330] transition-colors">
+              <span className="font-display text-sm font-bold tracking-tight text-zinc-950 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
                 Veer Singh Lodhi
               </span>
-              <span className="text-[11px] font-mono text-[#73766F] tracking-wider">
+              <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 tracking-wider">
                 Java Full-Stack &middot; AI/ML
               </span>
             </div>
@@ -59,7 +60,7 @@ export default function Navigation() {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3.5 py-1.5 text-sm font-medium text-[#73766F] hover:text-[#121212] transition-colors rounded-lg hover:bg-[#E8E9E5]/60"
+                className="px-3.5 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/80"
               >
                 {link.name}
               </a>
@@ -69,41 +70,45 @@ export default function Navigation() {
           {/* Right Action Bar */}
           <div className="hidden sm:flex items-center gap-3">
             {/* Availability Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#E8E9E5] bg-white text-xs font-mono text-[#121212] shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-mono text-zinc-800 dark:text-zinc-200 shadow-2xs">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D7F36A] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4D7C0F]"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4D7C0F] dark:bg-[#84cc16]"></span>
               </span>
-              <span className="font-medium text-[#42463F]">Available for roles</span>
+              <span className="font-medium text-zinc-700 dark:text-zinc-300">Available for roles</span>
             </div>
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
             {/* Resume Button */}
             <a
               href={portfolio.personal.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#121212] text-white text-xs font-semibold hover:bg-[#3B4330] transition-all shadow-xs active:scale-98"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-zinc-950 dark:bg-zinc-100 text-white dark:text-zinc-950 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all shadow-xs active:scale-98"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>Resume</span>
-              <ArrowUpRight className="w-3 h-3 text-[#E8E9E5]" />
+              <ArrowUpRight className="w-3 h-3 text-zinc-400 dark:text-zinc-600" />
             </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Toggle & Theme Toggle */}
           <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
             <a
               href={portfolio.personal.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-3 py-1.5 rounded-lg bg-[#121212] text-white text-xs font-semibold"
+              className="inline-flex items-center px-3 py-1.5 rounded-lg bg-zinc-950 dark:bg-zinc-100 text-white dark:text-zinc-950 text-xs font-semibold"
             >
               <span>CV</span>
               <ArrowUpRight className="w-3 h-3 ml-1" />
             </a>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-lg border border-[#E8E9E5] text-[#121212] hover:bg-white transition-colors focus-visible:outline-hidden"
+              className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors focus-visible:outline-hidden"
               aria-label="Toggle navigation menu"
             >
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -113,21 +118,21 @@ export default function Navigation() {
 
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
-          <div className="md:hidden mt-3 pt-3 pb-4 border border-[#E8E9E5] bg-white rounded-2xl p-4 shadow-xl space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden mt-3 pt-3 pb-4 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 rounded-2xl p-4 shadow-xl space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-[#121212] hover:bg-[#F9F9F6] transition-colors"
+                className="flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
               >
                 <span>{link.name}</span>
-                <span className="text-xs text-[#73766F]">&rarr;</span>
+                <span className="text-xs text-zinc-400 dark:text-zinc-500">&rarr;</span>
               </a>
             ))}
-            <div className="pt-2 border-t border-[#E8E9E5] flex items-center justify-between px-3">
-              <span className="text-xs font-mono text-[#73766F]">Status</span>
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[#121212]">
+            <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between px-3">
+              <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400">Status</span>
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-zinc-800 dark:text-zinc-200">
                 <span className="h-2 w-2 rounded-full bg-[#D7F36A] border border-[#121212]/20"></span>
                 Open to engineering roles
               </span>

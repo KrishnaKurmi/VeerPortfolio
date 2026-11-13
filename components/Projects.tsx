@@ -6,11 +6,9 @@ import { motion } from "framer-motion";
 import { portfolio, FeaturedProject, SecondaryProject } from "@/data/portfolio";
 import {
   ArrowUpRight,
-  ExternalLink,
   Play,
   Users,
   Calendar,
-  Layers,
   ChevronDown,
   ChevronUp,
   FolderGit2,
@@ -23,20 +21,20 @@ export default function Projects() {
   return (
     <section
       id="work"
-      className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[#E8E9E5]"
+      className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-zinc-200/80 dark:border-zinc-800"
     >
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
         <div>
-          <div className="inline-block px-2.5 py-1 rounded bg-zinc-100 text-zinc-800 font-mono text-[11px] font-bold tracking-wider uppercase mb-3">
+          <div className="inline-block px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-mono text-[11px] font-bold tracking-wider uppercase mb-3">
             04 // FEATURED ENGAGEMENTS
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-zinc-950 tracking-tight">
-            Selected Work &amp; <span className="font-serif italic font-normal text-zinc-700">Systems</span>
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-zinc-950 dark:text-zinc-100 tracking-tight">
+            Selected Work &amp; <span className="font-serif italic font-normal text-zinc-700 dark:text-zinc-300">Systems</span>
           </h2>
         </div>
 
-        <p className="text-xs sm:text-sm font-mono text-[#73766F] max-w-xs sm:text-right">
+        <p className="text-xs sm:text-sm font-mono text-zinc-500 dark:text-zinc-400 max-w-xs sm:text-right">
           ENTERPRISE BACKENDS &middot; PRODUCTION APPS
         </p>
       </div>
@@ -59,12 +57,11 @@ export default function Projects() {
           return (
             <motion.div
               key={project.id}
-              className="rounded-2xl border border-[#E8E9E5] bg-white overflow-hidden hover:border-[#121212] transition-all duration-300 flex flex-col justify-between group shadow-[0_4px_24px_rgba(29,37,18,0.03)] hover:shadow-[0_20px_50px_rgba(29,37,18,0.08)] hover:-translate-y-0.5"
+              className="rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 flex flex-col justify-between group shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:-translate-y-0.5"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{
-                y: -8,
-                boxShadow: "0 20px 50px rgba(29, 37, 18, 0.08)",
+                y: -6,
               }}
               transition={{
                 duration: 0.6,
@@ -73,24 +70,24 @@ export default function Projects() {
               viewport={{ once: true }}
             >
               {/* Window Header Chrome */}
-              <div className="px-5 py-3.5 border-b border-[#E8E9E5] bg-[#F9F9F6] flex items-center justify-between">
+              <div className="px-5 py-3.5 border-b border-zinc-200/80 dark:border-zinc-800 bg-[#F9F9F6] dark:bg-zinc-950 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#121212]/20"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#121212]/20"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#121212]/20"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
                   </div>
-                  <span className="ml-2 font-mono text-[11px] text-[#73766F] truncate max-w-[180px] sm:max-w-xs">
+                  <span className="ml-2 font-mono text-[11px] text-zinc-500 dark:text-zinc-400 truncate max-w-[180px] sm:max-w-xs">
                     {project.liveLink || project.playStoreLink || `github.com/veer/${project.id}`}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-[11px] font-bold text-[#73766F]">
+                  <span className="font-mono text-[11px] font-bold text-zinc-500 dark:text-zinc-400">
                     [0{idx + 1}]
                   </span>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white text-[#121212] font-mono text-[10px] font-bold border border-[#E8E9E5]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D7F36A] border border-[#121212]/20"></span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-mono text-[10px] font-bold border border-zinc-200/80 dark:border-zinc-700">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D7F36A] border border-[#121212]/20 dark:border-zinc-950/40"></span>
                     {project.liveLink ? "LIVE" : project.playStoreLink ? "PLAY STORE" : "DEPLOYED"}
                   </span>
                 </div>
@@ -100,22 +97,22 @@ export default function Projects() {
               <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
                 <div>
                   {/* Category Pill */}
-                  <div className="text-[11px] font-mono tracking-wider text-[#73766F] uppercase font-bold mb-2">
+                  <div className="text-[11px] font-mono tracking-wider text-zinc-500 dark:text-zinc-400 uppercase font-bold mb-2">
                     {project.category}
                   </div>
 
                   {/* Project Name */}
-                  <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-[#121212] mb-3 group-hover:text-[#3B4330] transition-colors">
+                  <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-zinc-950 dark:text-zinc-100 mb-3 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
                     {project.name}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm sm:text-base text-[#42463F] leading-[1.8] mb-6">
+                  <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-[1.8] mb-6">
                     {project.description}
                   </p>
 
                   {/* Metadata Chips: Period & Team */}
-                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#73766F] mb-6 py-2 border-y border-[#E8E9E5]">
+                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-6 py-2 border-y border-zinc-200/80 dark:border-zinc-800">
                     <div className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>{project.period}</span>
@@ -131,7 +128,7 @@ export default function Projects() {
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-2.5 py-1 rounded-md border border-[#E8E9E5] bg-[#F9F9F6] text-xs font-mono text-[#121212]"
+                        className="px-2.5 py-1 rounded-md border border-zinc-200/80 dark:border-zinc-700 bg-[#F9F9F6] dark:bg-zinc-800 text-xs font-mono text-zinc-800 dark:text-zinc-200"
                       >
                         {t}
                       </span>
@@ -140,13 +137,13 @@ export default function Projects() {
                 </div>
 
                 {/* CTAs */}
-                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#E8E9E5]">
+                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-zinc-200/80 dark:border-zinc-800">
                   {project.liveLink && (
                     <Link
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#121212] text-white text-xs font-semibold hover:bg-[#3B4330] hover:-translate-y-0.5 transition-all shadow-xs"
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-zinc-950 dark:bg-zinc-100 text-white dark:text-zinc-950 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:-translate-y-0.5 transition-all shadow-xs cursor-pointer"
                     >
                       <span>Visit Live Store</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -158,11 +155,11 @@ export default function Projects() {
                       href={project.playStoreLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#121212] text-white text-xs font-semibold hover:bg-[#3B4330] hover:-translate-y-0.5 transition-all shadow-xs"
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-zinc-950 dark:bg-zinc-100 text-white dark:text-zinc-950 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:-translate-y-0.5 transition-all shadow-xs cursor-pointer"
                     >
-                      <Play className="w-3.5 h-3.5 fill-[#D7F36A] text-[#D7F36A]" />
+                      <Play className="w-3.5 h-3.5 fill-[#D7F36A] text-[#D7F36A] dark:fill-emerald-600 dark:text-emerald-600" />
                       <span>Google Play Store</span>
-                      <ArrowUpRight className="w-3 h-3 text-[#E8E9E5]" />
+                      <ArrowUpRight className="w-3 h-3 text-zinc-400 dark:text-zinc-600" />
                     </Link>
                   )}
 
@@ -171,9 +168,9 @@ export default function Projects() {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-[#E8E9E5] bg-white text-[#121212] text-xs font-semibold hover:border-[#121212] hover:bg-[#F9F9F6] hover:-translate-y-0.5 transition-all shadow-2xs"
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-zinc-200/80 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-semibold hover:border-zinc-400 dark:hover:border-zinc-500 hover:bg-zinc-50 dark:hover:bg-zinc-700 hover:-translate-y-0.5 transition-all shadow-2xs cursor-pointer"
                     >
-                      <GithubIcon className="w-3.5 h-3.5" />
+                      <GithubIcon className="w-3.5 h-3.5 text-zinc-800 dark:text-zinc-200" />
                       <span>View Code</span>
                     </Link>
                   )}
@@ -186,23 +183,22 @@ export default function Projects() {
 
       {/* Secondary Projects Accordion Archive */}
       <motion.div
-        className="rounded-2xl border border-[#E8E9E5] bg-white p-6 sm:p-8 shadow-[0_4px_24px_rgba(29,37,18,0.03)]"
+        className="rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        whileHover={{ boxShadow: "0 12px 24px rgba(29, 37, 18, 0.06)" }}
         transition={{ duration: 0.6, delay: 0.3 }}
         viewport={{ once: true }}
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-[#F9F9F6] border border-[#E8E9E5] text-[#121212]">
-              <FolderGit2 className="w-5 h-5" />
+            <div className="p-2.5 rounded-xl bg-[#F9F9F6] dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200">
+              <FolderGit2 className="w-5 h-5 text-zinc-800 dark:text-zinc-200" />
             </div>
             <div>
-              <h3 className="font-display font-bold text-lg sm:text-xl text-[#121212]">
+              <h3 className="font-display font-bold text-lg sm:text-xl text-zinc-950 dark:text-zinc-100">
                 Additional Projects &amp; Software Archive
               </h3>
-              <p className="text-xs text-[#73766F] font-mono">
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
                 {portfolio.secondary_projects.length} repository projects &middot; Java Swing, WebSockets, DB Systems
               </p>
             </div>
@@ -210,7 +206,7 @@ export default function Projects() {
 
           <button
             onClick={() => setShowSecondary(!showSecondary)}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[#E8E9E5] bg-[#F9F9F6] hover:bg-white hover:border-[#121212] text-xs font-mono font-semibold text-[#121212] transition-all self-start sm:self-auto cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-zinc-200/80 dark:border-zinc-700 bg-[#F9F9F6] dark:bg-zinc-800 hover:bg-white dark:hover:bg-zinc-700 text-xs font-mono font-semibold text-zinc-800 dark:text-zinc-200 transition-all self-start sm:self-auto cursor-pointer"
           >
             <span>{showSecondary ? "Hide Archive" : "Expand Archive"}</span>
             {showSecondary ? (
@@ -223,7 +219,7 @@ export default function Projects() {
 
         {showSecondary && (
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#E8E9E5]"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-zinc-200/80 dark:border-zinc-800"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
@@ -231,13 +227,9 @@ export default function Projects() {
             {portfolio.secondary_projects.map((proj: SecondaryProject, idx: number) => (
               <motion.div
                 key={proj.id}
-                className="p-5 rounded-xl border border-[#E8E9E5] bg-[#F9F9F6]/60 flex flex-col justify-between hover:border-[#121212] hover:bg-white transition-all"
+                className="p-5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-[#F9F9F6]/60 dark:bg-zinc-800/40 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 hover:bg-white dark:hover:bg-zinc-800 transition-all"
                 initial={{ opacity: 0, y: 20 }}
-                animate={showSecondary ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                whileHover={{
-                  y: -3,
-                  boxShadow: "0 8px 16px rgba(0, 0, 0, 0.05)",
-                }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.4,
                   delay: idx * 0.08,
@@ -245,19 +237,19 @@ export default function Projects() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[11px] font-mono text-[#73766F] uppercase font-bold tracking-wider">
+                    <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 uppercase font-bold tracking-wider">
                       {proj.category}
                     </span>
-                    <span className="text-[11px] font-mono text-[#73766F]">
+                    <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
                       {proj.period}
                     </span>
                   </div>
 
-                  <h4 className="font-display font-bold text-base text-[#121212] mb-2">
+                  <h4 className="font-display font-bold text-base text-zinc-950 dark:text-zinc-100 mb-2">
                     {proj.name}
                   </h4>
 
-                  <p className="text-xs text-[#42463F] mb-4 leading-relaxed">
+                  <p className="text-xs text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed">
                     {proj.description}
                   </p>
 
@@ -265,7 +257,7 @@ export default function Projects() {
                     {proj.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-2 py-0.5 rounded-md border border-[#E8E9E5] bg-white text-[11px] font-mono text-[#121212]"
+                        className="px-2 py-0.5 rounded-md border border-zinc-200/80 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-[11px] font-mono text-zinc-800 dark:text-zinc-200"
                       >
                         {t}
                       </span>
@@ -277,11 +269,11 @@ export default function Projects() {
                   href={proj.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#121212] hover:text-[#3B4330] pt-3 border-t border-[#E8E9E5]"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-zinc-800 dark:text-zinc-200 hover:text-zinc-950 dark:hover:text-white pt-3 border-t border-zinc-200/80 dark:border-zinc-800"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" />
+                  <GithubIcon className="w-3.5 h-3.5 text-zinc-800 dark:text-zinc-200" />
                   <span>GitHub Repository</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#73766F]" />
+                  <ArrowUpRight className="w-3 h-3 text-zinc-400 dark:text-zinc-500" />
                 </Link>
               </motion.div>
             ))}

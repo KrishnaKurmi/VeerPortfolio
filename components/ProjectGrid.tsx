@@ -20,19 +20,19 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
         return (
           <div
             key={project.id}
-            className="rounded-2xl border border-[#E8E9E5] bg-white overflow-hidden hover:border-[#121212] transition-all duration-300 flex flex-col justify-between group shadow-[0_4px_20px_rgba(29,37,18,0.03)] hover:shadow-[0_16px_36px_rgba(29,37,18,0.06)] hover:-translate-y-0.5"
+            className="rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 flex flex-col justify-between group shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_16px_36px_rgba(0,0,0,0.5)] hover:-translate-y-0.5"
           >
             {/* Window Header */}
-            <div className="px-4 py-3 border-b border-[#E8E9E5] bg-[#F9F9F6] flex items-center justify-between">
+            <div className="px-4 py-3 border-b border-zinc-200/80 dark:border-zinc-800 bg-[#F9F9F6] dark:bg-zinc-950 flex items-center justify-between">
               <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-[#121212]/20"></div>
-                <div className="w-2 h-2 rounded-full bg-[#121212]/20"></div>
-                <div className="w-2 h-2 rounded-full bg-[#121212]/20"></div>
-                <span className="ml-2 font-mono text-[10px] text-[#73766F] truncate max-w-[130px]">
+                <div className="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+                <div className="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+                <div className="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+                <span className="ml-2 font-mono text-[10px] text-zinc-500 dark:text-zinc-400 truncate max-w-[130px]">
                   {project.category}
                 </span>
               </div>
-              <span className="font-mono text-[10px] text-[#73766F] font-semibold">
+              <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-400 font-semibold">
                 [0{idx + 1}]
               </span>
             </div>
@@ -40,21 +40,21 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
             {/* Body */}
             <div className="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-display font-bold text-xl text-[#121212] mb-2 group-hover:text-[#3B4330] transition-colors">
+                <h3 className="font-display font-bold text-xl text-zinc-950 dark:text-zinc-100 mb-2 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
                   {project.name}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-[#42463F] line-clamp-3 mb-4 leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 line-clamp-3 mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
-                <div className="flex items-center gap-3 text-xs font-mono text-[#73766F] mb-4 py-1.5 border-y border-[#E8E9E5]">
+                <div className="flex items-center gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-4 py-1.5 border-y border-zinc-200/80 dark:border-zinc-800">
                   <div className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
+                    <Calendar className="w-3 h-3 text-zinc-500 dark:text-zinc-400" />
                     <span>{project.period}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Users className="w-3 h-3" />
+                    <Users className="w-3 h-3 text-zinc-500 dark:text-zinc-400" />
                     <span>Team: {project.team}</span>
                   </div>
                 </div>
@@ -64,7 +64,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
                   {project.tech.map((t, i) => (
                     <span
                       key={i}
-                      className="px-2 py-0.5 text-[11px] font-mono rounded-md border border-[#E8E9E5] bg-[#F9F9F6] text-[#121212]"
+                      className="px-2 py-0.5 text-[11px] font-mono rounded-md border border-zinc-200/80 dark:border-zinc-700 bg-[#F9F9F6] dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200"
                     >
                       {t}
                     </span>
@@ -73,13 +73,13 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
               </div>
 
               {/* Action Links */}
-              <div className="flex items-center gap-2 pt-3 border-t border-[#E8E9E5] flex-wrap">
+              <div className="flex items-center gap-2 pt-3 border-t border-zinc-200/80 dark:border-zinc-800 flex-wrap">
                 {liveLink && (
                   <Link
                     href={liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#121212] text-white text-xs font-semibold hover:bg-[#3B4330] transition-colors"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-zinc-950 dark:bg-zinc-100 text-white dark:text-zinc-950 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
                   >
                     <span>Visit</span>
                     <ArrowUpRight className="w-3 h-3" />
@@ -91,9 +91,9 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
                     href={playStoreLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#121212] text-white text-xs font-semibold hover:bg-[#3B4330] transition-colors"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-zinc-950 dark:bg-zinc-100 text-white dark:text-zinc-950 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
                   >
-                    <Play className="w-3 h-3 fill-[#D7F36A] text-[#D7F36A]" />
+                    <Play className="w-3 h-3 fill-[#D7F36A] text-[#D7F36A] dark:fill-emerald-600 dark:text-emerald-600" />
                     <span>Play Store</span>
                   </Link>
                 )}
@@ -103,11 +103,11 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
                     href={githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[#E8E9E5] bg-white text-[#121212] text-xs font-mono font-medium hover:border-[#121212] hover:bg-[#F9F9F6] transition-colors"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-zinc-200/80 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-mono font-medium hover:border-zinc-400 dark:hover:border-zinc-500 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors"
                   >
-                    <GithubIcon className="w-3 h-3" />
+                    <GithubIcon className="w-3 h-3 text-zinc-800 dark:text-zinc-200" />
                     <span>Code</span>
-                    <ArrowUpRight className="w-3 h-3" />
+                    <ArrowUpRight className="w-3 h-3 text-zinc-400 dark:text-zinc-500" />
                   </Link>
                 )}
               </div>

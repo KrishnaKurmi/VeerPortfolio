@@ -1,7 +1,6 @@
 "use client";
 
 import { portfolio } from "@/data/portfolio";
-import { motion } from "framer-motion";
 import {
   Code2,
   Server,
@@ -11,6 +10,7 @@ import {
   Wrench,
   Check,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface CategoryMeta {
   key: keyof typeof portfolio.skills;
@@ -64,20 +64,20 @@ export default function TechStack() {
   return (
     <section
       id="stack"
-      className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[#E8E9E5]"
+      className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-zinc-200/80 dark:border-zinc-800"
     >
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
         <div>
-          <div className="inline-block px-2.5 py-1 rounded bg-[#D7F36A] text-[#121212] font-mono text-[11px] font-bold tracking-wider uppercase mb-3">
+          <div className="inline-block px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-mono text-[11px] font-bold tracking-wider uppercase mb-3">
             03 // TECHNICAL PROFICIENCY
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-[#121212] tracking-hero">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-zinc-950 dark:text-zinc-100 tracking-hero">
             Capabilities &amp; Tech Stack
           </h2>
         </div>
 
-        <p className="text-xs sm:text-sm font-mono text-[#73766F] max-w-xs sm:text-right">
+        <p className="text-xs sm:text-sm font-mono text-zinc-500 dark:text-zinc-400 max-w-xs sm:text-right">
           ENTERPRISE BACKEND + MODERN WEB + AI
         </p>
       </div>
@@ -103,12 +103,11 @@ export default function TechStack() {
           return (
             <motion.div
               key={cat.key}
-              className="p-6 sm:p-7 rounded-2xl border border-[#E8E9E5] bg-white hover:border-[#121212] hover:shadow-[0_16px_36px_rgba(29,37,18,0.06)] hover:-translate-y-0.5 transition-all flex flex-col justify-between group shadow-[0_4px_20px_rgba(29,37,18,0.03)]"
+              className="p-6 sm:p-7 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-zinc-400 dark:hover:border-zinc-600 hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_16px_36px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 transition-all flex flex-col justify-between group shadow-[0_4px_20px_rgba(0,0,0,0.02)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{
-                y: -8,
-                boxShadow: "0 16px 36px rgba(29, 37, 18, 0.06)",
+                y: -6,
               }}
               transition={{
                 duration: 0.6,
@@ -119,19 +118,19 @@ export default function TechStack() {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-[#F9F9F6] border border-[#E8E9E5] text-[#121212] group-hover:bg-[#121212] group-hover:text-white group-hover:border-[#121212] transition-colors">
+                    <div className="p-2.5 rounded-xl bg-[#F9F9F6] dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 group-hover:bg-zinc-950 dark:group-hover:bg-zinc-100 group-hover:text-white dark:group-hover:text-zinc-950 group-hover:border-zinc-950 dark:group-hover:border-zinc-100 transition-colors">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <h3 className="font-display font-bold text-sm text-[#121212]">
+                    <h3 className="font-display font-bold text-sm text-zinc-950 dark:text-zinc-100">
                       {cat.label}
                     </h3>
                   </div>
-                  <span className="font-mono text-[10px] text-[#73766F] px-2 py-0.5 rounded bg-[#F9F9F6] border border-[#E8E9E5]">
+                  <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-400 px-2 py-0.5 rounded bg-[#F9F9F6] dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700">
                     0{idx + 1}
                   </span>
                 </div>
 
-                <p className="text-xs text-[#73766F] mb-5 leading-relaxed">
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 mb-5 leading-relaxed">
                   {cat.description}
                 </p>
 
@@ -139,7 +138,7 @@ export default function TechStack() {
                   {items.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2.5 py-1 rounded-md border border-[#E8E9E5] bg-[#F9F9F6] text-xs font-mono text-[#121212] hover:border-[#121212] transition-colors"
+                      className="px-2.5 py-1 rounded-md border border-zinc-200/80 dark:border-zinc-700 bg-[#F9F9F6] dark:bg-zinc-800 text-xs font-mono text-zinc-800 dark:text-zinc-200 hover:border-zinc-400 dark:hover:border-zinc-500 transition-colors"
                     >
                       {skill}
                     </span>
@@ -147,9 +146,9 @@ export default function TechStack() {
                 </div>
               </div>
 
-              <div className="pt-4 mt-6 border-t border-[#E8E9E5] flex items-center justify-between text-[11px] font-mono text-[#73766F]">
+              <div className="pt-4 mt-6 border-t border-zinc-200/80 dark:border-zinc-800 flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
                 <span>Verified modules</span>
-                <span className="font-semibold text-[#121212]">
+                <span className="font-semibold text-zinc-950 dark:text-zinc-200">
                   {items.length} technologies
                 </span>
               </div>
@@ -160,15 +159,15 @@ export default function TechStack() {
 
       {/* Smooth Marquee Bar */}
       <motion.div
-        className="p-4 sm:p-5 rounded-2xl border border-[#E8E9E5] bg-white shadow-[0_4px_20px_rgba(29,37,18,0.03)] overflow-hidden"
+        className="p-4 sm:p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-[0_4px_20px_rgba(0,0,0,0.02)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] overflow-hidden"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         viewport={{ once: true }}
       >
         <div className="flex items-center gap-2 mb-3 px-2">
-          <Check className="w-3.5 h-3.5 text-[#121212]" />
-          <span className="text-[11px] font-mono uppercase tracking-wider text-[#73766F]">
+          <Check className="w-3.5 h-3.5 text-zinc-800 dark:text-zinc-200" />
+          <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
             Skills Overview &middot; Active Ecosystem
           </span>
         </div>
@@ -178,9 +177,9 @@ export default function TechStack() {
             {allSkills.concat(allSkills).map((item, idx) => (
               <span
                 key={`${item}-${idx}`}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E8E9E5] bg-[#F9F9F6] text-xs font-mono text-[#121212] font-medium"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200/80 dark:border-zinc-700 bg-[#F9F9F6] dark:bg-zinc-800 text-xs font-mono text-zinc-800 dark:text-zinc-200 font-medium"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D7F36A] border border-[#121212]/30"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D7F36A] border border-[#121212]/30 dark:border-zinc-950/40"></span>
                 {item}
               </span>
             ))}
